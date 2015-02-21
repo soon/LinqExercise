@@ -21,5 +21,10 @@ namespace LinqExercise
         {
             return Enumerable.Empty<int>();
         }
+
+        public static IEnumerable<string> OnlyPalindromes(IEnumerable<string> words)
+        {
+            return Enumerable.Empty<string>();
+        }
     }
 }
