@@ -54,10 +54,29 @@ namespace Tests
             Printable.Remove(type);
         }
 
-        //TODO:
+        private static readonly Dictionary<Type, Func<object, object, object>> Addable =
+            new Dictionary<Type, Func<object, object, object>>
+            {
+                {typeof(int), (x, y) => (int)x + (int)y},
+                {typeof(double), (x , y) => (double)x + (double)y},
+                {
+                    typeof(Vector), (x, y) =>
+                    {
+                        var v1 = (Vector)x;
+                        var v2 = (Vector)y;
+                        return new Vector {X = v1.X + v2.X, Y = v1.Y + v2.Y};
+                    }
+                }
+            };
+
         public static T Add<T>(T x, T y)
         {
-            throw new NotImplementedException();
+            var type = x.GetType();
+            if(Addable.ContainsKey(type))
+            {
+                return (T)Addable[type](x, y);
+            }
+            throw new ArgumentException(String.Format("There aren't any instances of Addable for type {0}", type));
         }
     }
 

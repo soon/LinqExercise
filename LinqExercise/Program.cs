@@ -25,6 +25,11 @@ namespace LinqExercise
             get;
             private set;
         }
+
+        public Point Add(Point vector)
+        {
+            return new Point(X + vector.X, Y + vector.Y);
+        }
     }
 
     public static class Program
@@ -35,22 +40,29 @@ namespace LinqExercise
 
         public static IEnumerable<int> AddTwoToEachElement(IEnumerable<int> enumerable)
         {
-            return Enumerable.Empty<int>();
+            return enumerable.Select(x => x + 2);
         }
 
         public static IEnumerable<int> NegatePositiveElements(IEnumerable<int> enumerable)
         {
-            return Enumerable.Empty<int>();
+            return enumerable.Select(x => -Math.Abs(x));
         }
 
         public static IEnumerable<string> OnlyPalindromes(IEnumerable<string> words)
         {
-            return Enumerable.Empty<string>();
+            return words.Where(IsPalindrome);
+        }
+
+        public static bool IsPalindrome(string word)
+        {
+            return word.ToLower() == new string(word.ToLower().Reverse().ToArray());
         }
 
         public static IEnumerable<Point> Near(Point point)
         {
-            return Enumerable.Empty<Point>();
+            var xComponent = new[] {-1, 0, 1};
+            var yComponent = new[] {-1, 0, 1};
+            return xComponent.SelectMany(x => yComponent.Select(y => point.Add(new Point(x, y))));
         }
     }
 }
