@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Tests
 {
     [TestClass]
-    public class TestFilter
+    public class TestWhere
     {
         [TestMethod]
         public void TestOnlyPalindromes_NoPalindromes()
