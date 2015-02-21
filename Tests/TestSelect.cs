@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Linq;
-using System.Text;
+﻿using System.Linq;
 using LinqExercise;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
