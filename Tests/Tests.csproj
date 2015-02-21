@@ -53,6 +53,7 @@
     <Compile Include="TestFilter.cs" />
     <Compile Include="TestSelect.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestSelectMany.cs" />
     <Compile Include="TestTypeClasses.cs" />
   </ItemGroup>
   <ItemGroup>
