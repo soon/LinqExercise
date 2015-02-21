@@ -21,7 +21,7 @@ namespace Tests
         [TestMethod]
         public void TestOnlyPalindromes_HasPalindromes()
         {
-            CollectionAssert.AreEqual(new[] {"level", "radar"},
+            CollectionAssert.AreEqual(new[] {"a", "radar", "level"},
                                       Program.OnlyPalindromes("There is a radar on the level".Split()).ToList());
         }
 
